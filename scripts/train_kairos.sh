@@ -11,10 +11,10 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 python train.py --model=constrained-gen --ckpt_name
     --train_file=data/wikievents/train.jsonl \
     --val_file=data/wikievents/dev.jsonl \
     --test_file=data/wikievents/test.jsonl \
-    --train_batch_size=2 \
-    --eval_batch_size=4 \
+    --train_batch_size=1 \
+    --eval_batch_size=1 \
     --learning_rate=3e-5 \
-    --accumulate_grad_batches=8 \
+    --accumulate_grad_batches=1 \
     --num_train_epochs=3 \
     --mark_trigger \
     --coref_dir=data/wikievents/coref
