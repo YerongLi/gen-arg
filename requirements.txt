@@ -1,4 +1,4 @@
-pytorc=h=1.6
+pytorc==1.6
 transformers==3.1.0
 pytorch-lightning==1.0.6
 spacy==3.0 # conflicts with transformers
