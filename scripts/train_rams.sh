@@ -2,7 +2,7 @@
 set -e 
 set -x 
 
-CUDA_VISIBLE_DEVICES=1,2,3 PYTHONPATH=. python train.py --model=gen --ckpt_name='gen-RAMS' \
+CUDA_VISIBLE_DEVICES='' PYTHONPATH=. python train.py --model=gen --ckpt_name='gen-RAMS' \
     --dataset=RAMS \
     --train_file=data/RAMS_1.0/data/train.jsonlines \
     --val_file=data/RAMS_1.0/data/dev.jsonlines \
@@ -10,6 +10,6 @@ CUDA_VISIBLE_DEVICES=1,2,3 PYTHONPATH=. python train.py --model=gen --ckpt_name=
     --train_batch_size=1 \
     --eval_batch_size=1 \
     --learning_rate=3e-5 \
-    --accumulate_grad_batches=4 \
+    --accumulate_grad_batches=1 \
     --num_train_epochs=3 \
     --mark_trigger 
