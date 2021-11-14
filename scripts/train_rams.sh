@@ -2,7 +2,7 @@
 set -e 
 set -x 
 
-CUDA_VISIBLE_DEVICES='' PYTHONPATH=. python train.py --model=gen --ckpt_name='gen-RAMS' \
+CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONPATH=. python train.py --model=gen --ckpt_name='gen-RAMS' \
     --dataset=RAMS \
     --train_file=data/RAMS_1.0/data/train.jsonlines \
     --val_file=data/RAMS_1.0/data/dev.jsonlines \
