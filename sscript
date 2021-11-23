@@ -5,11 +5,10 @@
 #SBATCH --gres=gpu:V100              # Number of GPUs (per node)
 module load anaconda/3
 module load cuda
-nvidia-smi | tee /home/yerong2/yerong.log
-# source activate /scratch/yerong/sha
+source activate /scratch/yerong/sha
 
-# pwd; hostname; date
+pwd; hostname; date
 
 
-# echo "Running plot script on a single CPU core"
-# srun ‑‑gres=gpu:V100 bash scripts/train_kairos.sh | tee /home/yerong2/yerong.log
+echo "Running plot script on a single CPU core"
+srun bash scripts/train_kairos.sh | tee /home/yerong2/yerong.log
