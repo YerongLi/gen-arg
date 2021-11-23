@@ -8,4 +8,4 @@ pwd; hostname; date
 
 module load cuda
 echo "Running plot script on a single CPU core"
-bash train_kairos.sh | tee /home/yerong2/yerong.log
+bash script/train_kairos.sh | tee /home/yerong2/yerong.log
