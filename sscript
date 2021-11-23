@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --ntasks=1                    # Run on a single CPU
-#SBATCH --time=03:00:00               # Time limit hrs:min:sec
+#SBATCH --time=02:00:00               # Time limit hrs:min:sec
 #SBATCH --partition=secondary
 #SBATCH --gres=gpu:V100              # Number of GPUs (per node)
 module load anaconda/3
