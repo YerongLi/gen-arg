@@ -4,10 +4,12 @@
 #SBATCH --partition=secondary
 #SBATCH --job-name="myjob"
 #SBATCH --output=myjob.o%j
+module load anaconda/3
+module load cuda
+
 pwd; hostname; date
 
 
 
-module load cuda
 echo "Running plot script on a single CPU core"
 bash scripts/train_kairos.sh | tee /home/yerong2/yerong.log
