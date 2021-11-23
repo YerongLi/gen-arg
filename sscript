@@ -6,9 +6,9 @@
 #SBATCH --output=myjob.o%j
 module load anaconda/3
 module load cuda
+source activate /scratch/yerong/sha
 
 pwd; hostname; date
-
 
 
 echo "Running plot script on a single CPU core"
