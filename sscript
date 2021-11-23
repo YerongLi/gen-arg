@@ -4,13 +4,14 @@
 #SBATCH --partition=secondary
 #SBATCH --job-name="myjob"
 #SBATCH --output=myjob.o%j
-
+#SBATCH ‑‑gres=gpu:V100
 module load anaconda/3
 module load cuda
-source activate /scratch/yerong/sha
+nvidia-smi | tee /home/yerong2/yerong.log
+# source activate /scratch/yerong/sha
 
-pwd; hostname; date
+# pwd; hostname; date
 
 
-echo "Running plot script on a single CPU core"
-srun ‑‑gres=gpu:V100 bash scripts/train_kairos.sh | tee /home/yerong2/yerong.log
+# echo "Running plot script on a single CPU core"
+# srun ‑‑gres=gpu:V100 bash scripts/train_kairos.sh | tee /home/yerong2/yerong.log
