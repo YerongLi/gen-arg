@@ -2,10 +2,12 @@
 #SBATCH --ntasks=1                    # Run on a single CPU
 #SBATCH --time=00:05:00               # Time limit hrs:min:sec
 #SBATCH --partition=secondary
+#SBATCH --job-name="myjob"
+#SBATCH --output=myjob.o%j
 pwd; hostname; date
 
 
 
 module load cuda
 echo "Running plot script on a single CPU core"
-bash script/train_kairos.sh | tee /home/yerong2/yerong.log
+bash scripts/train_kairos.sh | tee /home/yerong2/yerong.log
