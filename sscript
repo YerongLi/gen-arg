@@ -4,6 +4,7 @@
 #SBATCH --partition=secondary
 #SBATCH --job-name="myjob"
 #SBATCH --output=myjob.o%j
+#SBATCH ‑‑gres=gpu:V100
 module load anaconda/3
 module load cuda
 source activate /scratch/yerong/sha
