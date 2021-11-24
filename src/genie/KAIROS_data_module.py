@@ -248,7 +248,7 @@ class KAIROSDataModule(pl.LightningDataModule):
 
     
     def val_dataloader(self):
-        dataset = IEDataset('preprocessed_{}/dev.jsonl'.format(self.hparams.dataset))
+        dataset = IEDataset('preprocessed_{}/val.jsonl'.format(self.hparams.dataset))
         
         dataloader = DataLoader(dataset, pin_memory=True, num_workers=2, 
             collate_fn=my_collate,
