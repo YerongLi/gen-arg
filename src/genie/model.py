@@ -134,7 +134,7 @@ class GenIEModel(pl.LightningModule):
             sample_output = self.model.generate(batch['input_token_ids'], do_sample=False, 
                                 max_length=30, num_return_sequences=1,num_beams=1,
                             )
-        
+        print(sample_output)
         sample_output = sample_output.reshape(batch['input_token_ids'].size(0), 1, -1)
         doc_key = batch['doc_key'] # list 
         tgt_token_ids = batch['tgt_token_ids']
