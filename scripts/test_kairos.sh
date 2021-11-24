@@ -16,7 +16,7 @@ python train.py --model=$MODEL --ckpt_name=${CKPT_NAME}-pred \
     --eval_batch_size=2 \
     --learning_rate=3e-5 \
     --accumulate_grad_batches=2 \
-    --num_train_epochs=3
+    --num_train_epochs=1
 
 python src/genie/scorer.py --gen-file=checkpoints/$CKPT_NAME-pred/predictions.jsonl \
 --test-file=data/wikievents/test.jsonl \
