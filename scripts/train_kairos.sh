@@ -6,7 +6,7 @@ CKPT_NAME='gen-KAIROS'
 rm -rf checkpoints/${CKPT_NAME}
 
 # does not use informative mentions 
-PYTHONPATH=. python train.py --model=constrained-gen --ckpt_name=${CKPT_NAME} \
+PYTHONPATH=. /scratch/yerong/sha/bin/python train.py --model=constrained-gen --ckpt_name=${CKPT_NAME} \
     --dataset=KAIROS \
     --train_file=data/wikievents/train.jsonl \
     --val_file=data/wikievents/dev.jsonl \
