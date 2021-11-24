@@ -15,6 +15,6 @@ PYTHONPATH=. /scratch/yerong/sha/bin/python train.py --model=constrained-gen --c
     --eval_batch_size=1 \
     --learning_rate=3e-5 \
     --accumulate_grad_batches=1 \
-    --num_train_epochs=3 \
+    --num_train_epochs=1 \
     --mark_trigger \
     --coref_dir=data/wikievents/coref
