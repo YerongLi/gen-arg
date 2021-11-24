@@ -4,6 +4,28 @@ import torch
 import logging 
 import json 
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    OKRED='\033[0;31m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+def tokgreen(s):
+    return bcolors.OKGREEN + s + bcolors.ENDC
+
+def tokblue(s):
+    return bcolors.OKBLUE + s + bcolors.ENDC
+
+def tokred(s):
+    return bcolors.OKRED + s + bcolors.ENDC
+
+def tokwaring(s):
+    return bcolors.WARNING + s + bcolors.ENDC
 
 import pytorch_lightning as pl 
 from transformers import BartTokenizer, BartConfig
@@ -103,6 +125,7 @@ class GenIEModel(pl.LightningModule):
         
 
     def test_step(self, batch, batch_idx):
+        print(tokgreen('Entering the test step'))
         if self.hparams.sample_gen:
             sample_output = self.model.generate(batch['input_token_ids'], do_sample=True, 
                                 top_k=20, top_p=0.95, max_length=30, num_return_sequences=1,num_beams=1,
