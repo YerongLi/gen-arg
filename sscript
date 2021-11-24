@@ -13,4 +13,5 @@ pwd; hostname; date
 
 
 echo "Running plot script on a single CPU core"
-srun bash scripts/train_kairos.sh | tee /home/yerong2/yerong.log
+# srun bash scripts/train_kairos.sh | tee /home/yerong2/yerong.log
+srun bash scripts/train_rams.sh | tee /home/yerong2/yerong.log
