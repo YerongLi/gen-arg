@@ -177,6 +177,7 @@ class KAIROSDataModule(pl.LightningDataModule):
             
 
             for split,f in [('train',self.hparams.train_file), ('val',self.hparams.val_file), ('test',self.hparams.test_file)]:
+                print(split,f )
                 coref_split = 'dev' if split=='val' else split 
                 coref_reader = open(os.path.join(self.hparams.coref_dir, '{}.jsonlines'.format(coref_split)))
                 with open(f,'r') as reader,  open(os.path.join(data_dir,'{}.jsonl'.format(split)), 'w') as writer:
