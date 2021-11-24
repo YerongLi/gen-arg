@@ -138,7 +138,7 @@ class GenIEModel(pl.LightningModule):
         sample_output = sample_output.reshape(batch['input_token_ids'].size(0), 1, -1)
         doc_key = batch['doc_key'] # list 
         tgt_token_ids = batch['tgt_token_ids']
-
+        print(doc_key)
         return (doc_key, sample_output, tgt_token_ids) 
 
     def test_epoch_end(self, outputs):
