@@ -12,10 +12,10 @@ python train.py --model=$MODEL --ckpt_name=${CKPT_NAME}-pred \
     --train_file=data/wikievents/train.jsonl \
     --val_file=data/wikievents/dev.jsonl \
     --test_file=data/wikievents/test.jsonl \
-    --train_batch_size=4 \
-    --eval_batch_size=4 \
+    --train_batch_size=2 \
+    --eval_batch_size=2 \
     --learning_rate=3e-5 \
-    --accumulate_grad_batches=4 \
+    --accumulate_grad_batches=2 \
     --num_train_epochs=3
 
 python src/genie/scorer.py --gen-file=checkpoints/$CKPT_NAME-pred/predictions.jsonl \

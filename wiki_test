@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --ntasks=1                    # Run on a single CPU
+#SBATCH --time=04:00:00               # Time limit hrs:min:sec
+#SBATCH --job-name="myjob"
+#SBATCH --partition=secondary
+#SBATCH --output=myjob.o%j
+#SBATCH --gres=gpu:K80              # Number of GPUs (per node)
+module load anaconda/3
+module load cuda
+source activate /scratch/yerong/sha
+
+pwd; hostname; date
+
+
+echo "Running plot script on a single CPU core"
+srun bash scripts/test_kairos.sh | tee /home/yerong2/yerong.log
+# srun bash scripts/train_ram.sh | tee /home/yerong2/yerong.log
