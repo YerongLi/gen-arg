@@ -15,7 +15,7 @@ for line in predict_list:
     gcount = gold.count('<arg>')
     if gcount != 0.0:
         print(abs(pcount- gcount) /gcount)
-        acc.append(abs(pcount- gcount) /gcount)
+        acc.append(1-abs(pcount- gcount) /gcount)
     else:
         acc.append(1.0)
 print(sum(acc)/len(acc))
