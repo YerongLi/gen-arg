@@ -7,7 +7,7 @@ MODEL=constrained-gen
 rm -rf checkpoints/${CKPT_NAME}-pred 
 PYTHONPATH=. /scratch/yerong/sha/bin/python train.py --model=$MODEL \
     --ckpt_name=${CKPT_NAME}-pred \
-    --load_ckpt=/scratch/yerong/data/sha/WikiEvents/epoch=1-v0.ckpt \
+    --load_ckpt=/scratch/yerong/data/sha/WikiEvents/epoch=2-v0.ckpt \
     --dataset=KAIROS \
     --eval_only \
     --train_file=data/wikievents/train.jsonl \
