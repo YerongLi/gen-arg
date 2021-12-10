@@ -10,9 +10,9 @@ with open('/scratch/yerong/gen-arg/checkpoints/gen-KAIROS-pred/predictions.jsonl
 acc = []
 for line in predict_list:
     gold = eval(line)['gold']
-
     predicted = eval(line)['predicted']
     pcount = predicted.count('<arg>')
     gcount = gold.count('<arg>')
+    print(abs(pcount- gcount) /gcount)
     acc.append(abs(pcount- gcount) /gcount)
 print(sum(acc)/len(acc))
