@@ -1,5 +1,5 @@
-# with open('/scratch/yerong/gen-arg/data/wikievents/test.jsonl', 'r') as json_file:
-#     test_list = list(json_file)
+with open('/scratch/yerong/gen-arg/data/wikievents/test.jsonl', 'r') as json_file:
+    test_list = list(json_file)
 
 # print(eval(test_list[0]).keys())
 # print(eval(test_list[0])['doc_id'])
@@ -13,6 +13,9 @@ for line in predict_list:
     predicted = eval(line)['predicted']
     pcount = predicted.count('<arg>')
     gcount = gold.count('<arg>')
-    print(abs(pcount- gcount) /gcount)
-    acc.append(abs(pcount- gcount) /gcount)
+    if gcount != 0.0:
+        print(abs(pcount- gcount) /gcount)
+        acc.append(abs(pcount- gcount) /gcount)
+    else:
+        acc.append(0.0)
 print(sum(acc)/len(acc))
