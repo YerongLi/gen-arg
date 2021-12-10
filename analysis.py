@@ -17,5 +17,5 @@ for line in predict_list:
         print(abs(pcount- gcount) /gcount)
         acc.append(abs(pcount- gcount) /gcount)
     else:
-        acc.append(0.0)
+        acc.append(1.0)
 print(sum(acc)/len(acc))
