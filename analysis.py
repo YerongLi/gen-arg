@@ -11,3 +11,4 @@ acc = 0.0
 for line in predict_list:
     predicted = eval(line)['predicted']
     print(predicted)
+    print(predicted.count('<arg>'))
