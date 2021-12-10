@@ -26,6 +26,7 @@ class KAIROSDataModule(pl.LightningDataModule):
         super().__init__() 
         self.hparams = args 
         self.tokenizer = BartTokenizer.from_pretrained('facebook/bart-large')
+        print(dir(self.tokenizer))
         self.tokenizer.add_tokens([' <arg>',' <tgr>'])
     
 
