@@ -126,6 +126,7 @@ class GenIEModel(pl.LightningModule):
 
     def test_step(self, batch, batch_idx):
         print(tokgreen('Entering the test step'))
+        print(batch['input_token_ids'])
         if self.hparams.sample_gen:
             sample_output = self.model.generate(batch['input_token_ids'], do_sample=True, 
                                 top_k=20, top_p=0.95, max_length=30, num_return_sequences=1,num_beams=1,
@@ -134,6 +135,7 @@ class GenIEModel(pl.LightningModule):
             sample_output = self.model.generate(batch['input_token_ids'], do_sample=False, 
                                 max_length=30, num_return_sequences=1,num_beams=1,
                             )
+        print('sample_output')
         print(sample_output)
         sample_output = sample_output.reshape(batch['input_token_ids'].size(0), 1, -1)
         doc_key = batch['doc_key'] # list 
