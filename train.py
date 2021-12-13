@@ -2,7 +2,8 @@ import argparse
 import logging 
 import os 
 import random 
-import timeit 
+import timeit
+import sys
 from datetime import datetime 
 
 import torch 
@@ -164,8 +165,11 @@ def main():
 
     if args.max_steps < 0 :
         args.max_epochs = args.min_epochs = args.num_train_epochs 
-    
-    
+    print('dataloader')
+    for d in dm:
+        print(d)
+        break
+    sys.exit(1)
 
     trainer = Trainer(
         logger=tb_logger,
