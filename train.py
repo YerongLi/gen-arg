@@ -168,7 +168,6 @@ def main():
     print('dataloader')
     for d in dm:
         print(d)
-        break
     sys.exit(1)
 
     trainer = Trainer(
