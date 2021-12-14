@@ -125,6 +125,12 @@ class GenIEModel(pl.LightningModule):
         
 
     def test_step(self, batch, batch_idx):
+        from transformers import BartTokenizer, BartConfig
+        tz = BartTokenizer.from_pretrained('facebook/bart-large')
+        tz.add_tokens([' <arg>',' <tgr>'])
+
+
+        print(tz.convert_ids_to_tokens)
         print(tokgreen('Entering the test step'))
         print(batch['input_token_ids'])
         if self.hparams.sample_gen:
