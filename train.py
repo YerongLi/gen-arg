@@ -167,6 +167,7 @@ def main():
         args.max_epochs = args.min_epochs = args.num_train_epochs 
     print('dataloader')
     for d in dm:
+        print(1)
         print(d)
     sys.exit(1)
 
