@@ -3,7 +3,7 @@ import argparse
 import torch 
 import logging 
 import json 
-
+import sys
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -141,6 +141,7 @@ class GenIEModel(pl.LightningModule):
         doc_key = batch['doc_key'] # list 
         tgt_token_ids = batch['tgt_token_ids']
         print(doc_key)
+        sys.exit(1)
         return (doc_key, sample_output, tgt_token_ids) 
 
     def test_epoch_end(self, outputs):

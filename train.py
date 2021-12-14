@@ -165,12 +165,12 @@ def main():
 
     if args.max_steps < 0 :
         args.max_epochs = args.min_epochs = args.num_train_epochs 
-    print('dataloader')
-    print(dm)
-    for d in dm:
-        print(1)
-        print(d)
-    sys.exit(1)
+    # print('dataloader')
+    # print(dm)
+    # for d in dm:
+    #     print(1)
+    #     print(d)
+    # sys.exit(1)
 
     trainer = Trainer(
         logger=tb_logger,
