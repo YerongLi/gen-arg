@@ -131,7 +131,9 @@ class GenIEModel(pl.LightningModule):
         inputids = batch['input_token_ids'].tolist()
         print('inputids:')
         print(type(inputids), len(inputids))
-        print(inputids)
+        print(inputids[0])
+        print('================')
+        print(inputids[1])
 
         print(tz.convert_ids_to_tokens(inputids))
         print(tokgreen('Entering the test step'))
