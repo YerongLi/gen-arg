@@ -3,7 +3,7 @@
 #SBATCH --time=00:10:00               # Time limit hrs:min:sec
 #SBATCH --job-name="testing"
 #SBATCH --partition=secondary
-#SBATCH --output=myjob.o%j
+#SBATCH --output=test.o
 #SBATCH --gres=gpu:K80              # Number of GPUs (per node)
 module load anaconda/3
 module load cuda
