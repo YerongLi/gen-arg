@@ -135,7 +135,10 @@ class GenIEModel(pl.LightningModule):
         print('================')
         print(inputids[1])
 
-        print(tz.convert_ids_to_tokens(inputids))
+        print(tz.convert_ids_to_tokens(inputids[0]))
+        print('================')
+        print(tz.convert_ids_to_tokens(inputids[1]))
+
         print(tokgreen('Entering the test step'))
         if self.hparams.sample_gen:
             sample_output = self.model.generate(batch['input_token_ids'], do_sample=True, 
