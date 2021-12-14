@@ -130,7 +130,7 @@ class GenIEModel(pl.LightningModule):
         tz.add_tokens([' <arg>',' <tgr>'])
 
 
-        print(tz.convert_ids_to_tokens)
+        print(tz.convert_ids_to_tokens(batch['input_token_ids']))
         print(tokgreen('Entering the test step'))
         print(batch['input_token_ids'])
         if self.hparams.sample_gen:
