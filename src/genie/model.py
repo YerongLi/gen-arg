@@ -130,7 +130,7 @@ class GenIEModel(pl.LightningModule):
         tz.add_tokens([' <arg>',' <tgr>'])
         inputids = batch['input_token_ids'].tolist()
         print('inputids:')
-        print(type(inputids))
+        print(type(inputids), len(inputids))
         print(inputids)
 
         print(tz.convert_ids_to_tokens(inputids))
