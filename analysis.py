@@ -1,8 +1,12 @@
 with open('/scratch/yerong/gen-arg/data/wikievents/test.jsonl', 'r') as json_file:
     test_list = list(json_file)
 print('test_list')
-print(eval(test_list[0]).keys())
-print(test_list[0])
+dict_  = eval(test_list[0])
+print(dict_)
+for key in dict_:
+    print(key)
+    print(dict_[key])
+# print(test_list[0])
 # print(eval(test_list[0]).keys())
 # print(eval(test_list[0])['doc_id'])
 # print(eval(test_list[0])['entity_mentions'])
