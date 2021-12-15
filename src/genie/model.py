@@ -150,6 +150,8 @@ class GenIEModel(pl.LightningModule):
                                 max_length=30, num_return_sequences=1,num_beams=1,
                             )
         print('sample_output')
+        for sample in sample_output:
+            print(tz.convert_ids_to_tokens(sample))
         print(sample_output)
         sample_output = sample_output.reshape(batch['input_token_ids'].size(0), 1, -1)
         doc_key = batch['doc_key'] # list 
