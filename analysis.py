@@ -3,7 +3,7 @@ with open('/scratch/yerong/gen-arg/data/wikievents/test.jsonl', 'r') as json_fil
 print('test_list')
 dict_  = eval(test_list[0])
 print(dict_.keys())
-print(dict_)
+# print(dict_)
 for key in dict_:
     print(key)
     print(dict_[key])
