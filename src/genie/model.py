@@ -125,22 +125,23 @@ class GenIEModel(pl.LightningModule):
         
 
     def test_step(self, batch, batch_idx):
-        from transformers import BartTokenizer, BartConfig
-        tz = BartTokenizer.from_pretrained('facebook/bart-large')
-        tz.add_tokens([' <arg>',' <tgr>'])
+        # from transformers import BartTokenizer, BartConfig
+        # tz = BartTokenizer.from_pretrained('facebook/bart-large')
+        # tz.add_tokens([' <arg>',' <tgr>'])
         inputids = batch['input_token_ids'].tolist()
-        print('inputids:')
-        print(batch.keys())
-        print(type(inputids), len(inputids))
-        print(inputids[0])
-        print('================')
-        print(inputids[1])
+        print(len(inputids))
+        # print('inputids:')
+        # print(batch.keys())
+        # print(type(inputids), len(inputids))
+        # print(inputids[0])
+        # print('================')
+        # print(inputids[1])
 
-        print(tz.convert_ids_to_tokens(inputids[0]))
-        print('================')
-        print(tz.convert_ids_to_tokens(inputids[1]))
+        # print(tz.convert_ids_to_tokens(inputids[0]))
+        # print('================')
+        # print(tz.convert_ids_to_tokens(inputids[1]))
 
-        print(tokgreen('Entering the test step'))
+        # print(tokgreen('Entering the test step'))
         if self.hparams.sample_gen:
             sample_output = self.model.generate(batch['input_token_ids'], do_sample=True, 
                                 top_k=20, top_p=0.95, max_length=30, num_return_sequences=1,num_beams=1,
@@ -149,15 +150,15 @@ class GenIEModel(pl.LightningModule):
             sample_output = self.model.generate(batch['input_token_ids'], do_sample=False, 
                                 max_length=30, num_return_sequences=1,num_beams=1,
                             )
-        print('sample_output')
-        for sample in sample_output:
-            print(tz.convert_ids_to_tokens(sample))
-        print(sample_output)
+        # print('sample_output')
+        # for sample in sample_output:
+        #     print(tz.convert_ids_to_tokens(sample))
+        # print(sample_output)
         sample_output = sample_output.reshape(batch['input_token_ids'].size(0), 1, -1)
         doc_key = batch['doc_key'] # list 
         tgt_token_ids = batch['tgt_token_ids']
-        print(doc_key)
-        sys.exit(1)
+        # print(doc_key)
+        # sys.exit(1)
         return (doc_key, sample_output, tgt_token_ids) 
 
     def test_epoch_end(self, outputs):
