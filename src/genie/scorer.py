@@ -132,8 +132,8 @@ def extract_args_from_template(ex, template, ontology_dict):
         print(evt_type)
         print('Before while loop')
         print(predicted_words)
-        for role in ontology_dict[event_type]['roles']:
-            KMPSearch(ontology_dict[event_type]['role_description'].split(), predicted_words)
+        for role in ontology_dict[evt_type]['roles']:
+            KMPSearch(ontology_dict[evt_type]['role_description'].split(), predicted_words)
 
     return predicted_args
 
