@@ -174,8 +174,6 @@ if __name__ == '__main__':
                 'doc_id': pred['doc_key']
             }
             doc2ex[pred['doc_key']].append(lidx)
-    # print('doc2ex')
-    # print(doc2ex)
     with open(args.test_file, 'r') as f:
         for line in f:
             doc = json.loads(line.strip())
