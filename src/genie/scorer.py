@@ -136,6 +136,8 @@ def extract_args_from_template(ex, template, ontology_dict):
         for role in ontology_dict[evt_type]['roles']:
             index = KMPSearch(ontology_dict[evt_type]['role_description'][role].split(), predicted_words)
             found_dict[index] = role
+        print('found_dict')
+        print(found_dict)
     return predicted_args
 
 
