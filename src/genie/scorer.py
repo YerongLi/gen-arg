@@ -30,8 +30,8 @@ def clean_span(ex, span):
 
 def extract_args_from_template(ex, template, ontology_dict):
     # extract argument text
-    print('Entering extract_args_from_template', not 'role_description' in ontology_dict)
-    if not 'role_description' in ontology_dict:
+    print('Entering extract_args_from_template', 'role_description' not in ontology_dict)
+    if 'role_description' not in ontology_dict:
         template_words = template.strip().split()
         predicted_words = ex['predicted'].strip().split()    
         predicted_args = defaultdict(list) # each argname may have multiple participants 
