@@ -221,8 +221,12 @@ if __name__ == '__main__':
 
         pred_arg_num += len(predicted_set)
         gold_arg_num += len(gold_set)
-        # check matches 
+        # check matches
+        count = 0
         for pred_arg in predicted_set:
+            count+=1
+            if count > 5:
+                break
             print(pred_arg)
             arg_start, arg_end, event_type, role = pred_arg
             gold_idn = {item for item in gold_set
