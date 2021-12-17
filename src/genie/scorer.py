@@ -165,6 +165,9 @@ if __name__ == '__main__':
             continue 
         template = ontology_dict[evt_type]['template']
         # extract argument text 
+        print('template')
+        print(template)
+
         predicted_args = extract_args_from_template(ex,template, ontology_dict)
         print('predicted_args')
         print(predicted_args)
