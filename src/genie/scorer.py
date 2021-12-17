@@ -166,7 +166,7 @@ if __name__ == '__main__':
         template = ontology_dict[evt_type]['template']
         # extract argument text 
         print('ontology_dict')
-        print(ontology_dict)
+        print(ontology_dict[evt_type])
         print('template')
         print(template)
 
