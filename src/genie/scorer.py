@@ -82,7 +82,6 @@ if __name__ == '__main__':
     
     args = parser.parse_args() 
 
-    # ontology_dict = load_ontology(dataset=args.dataset)
     ontology_dict = load_ontology(dataset=args.dataset, ontology_file=args.ontology_file)
 
     if args.dataset == 'KAIROS' and args.coref and not args.coref_file:
@@ -102,8 +101,8 @@ if __name__ == '__main__':
                 'doc_id': pred['doc_key']
             }
             doc2ex[pred['doc_key']].append(lidx)
-    print('doc2ex')
-    print(doc2ex)
+    # print('doc2ex')
+    # print(doc2ex)
     with open(args.test_file, 'r') as f:
         for line in f:
             doc = json.loads(line.strip())
@@ -175,6 +174,7 @@ if __name__ == '__main__':
         print(ontology_dict[evt_type].keys())
 
         predicted_args = extract_args_from_template(ex,template, ontology_dict)
+        print(ontology_dict[evt_type]['role_description'])
         print('predicted_args')
         print(predicted_args)
         # get trigger 
