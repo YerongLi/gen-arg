@@ -1,0 +1,1 @@
+git pull; /scratch/yerong/sha/bin/python src/genie/scorer.py --gen-file=checkpoints/gen-KAIROS-pred/predictions.jsonl --test-file=data/wikievents/test.jsonl --dataset=KAIROS --coref-file=data/wikievents/coref/test.jsonlines --head-only --coref
