@@ -128,16 +128,14 @@ def extract_args_from_template(ex, template, ontology_dict):
         t_ptr= 0
         p_ptr= 0 
         evt_type = ex['event']['event_type']
-        print('event type')
-        print(evt_type)
-        print('Before while loop')
-        print(predicted_words)
         found_dict = dict()
         for role in ontology_dict[evt_type]['roles']:
             index = KMPSearch(ontology_dict[evt_type]['role_description'][role].split(), predicted_words)
             if index : found_dict[index] = role
         print('found_dict')
         print(found_dict)
+        sorted_keys = sorted(list(found_dict.keys(), key=lambda x: x[0]))
+        print(sorted_keys)
     return predicted_args
 
 
