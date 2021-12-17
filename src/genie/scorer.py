@@ -73,7 +73,7 @@ def extract_args_from_template(ex, template, ontology_dict):
                 j += 1
     
             if j == M:
-                print("Found pattern at index " + str(i-j))
+                return i-j
                 j = lps[j-1]
     
             # mismatch after j matches
@@ -132,9 +132,10 @@ def extract_args_from_template(ex, template, ontology_dict):
         print(evt_type)
         print('Before while loop')
         print(predicted_words)
+        found_dict = dict()
         for role in ontology_dict[evt_type]['roles']:
-            KMPSearch(ontology_dict[evt_type]['role_description'][role].split(), predicted_words)
-
+            index = KMPSearch(ontology_dict[evt_type]['role_description'][role].split(), predicted_words)
+            found_dict[index] = role
     return predicted_args
 
 
