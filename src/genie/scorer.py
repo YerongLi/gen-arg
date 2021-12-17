@@ -223,6 +223,7 @@ if __name__ == '__main__':
         gold_arg_num += len(gold_set)
         # check matches 
         for pred_arg in predicted_set:
+            print(pred_arg)
             arg_start, arg_end, event_type, role = pred_arg
             gold_idn = {item for item in gold_set
                         if item[0] == arg_start and item[1] == arg_end
@@ -246,7 +247,7 @@ if __name__ == '__main__':
                         if gold_class_coref:
                             arg_class_coref_num +=1 
             
-    print(pred_arg_num)
+    # print(pred_arg_num)
     # print(gold_arg_num)
     # print(arg_idn_num)
         
