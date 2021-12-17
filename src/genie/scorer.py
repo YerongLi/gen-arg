@@ -92,6 +92,7 @@ def extract_args_from_template(ex, template, ontology_dict):
                     p_ptr +=1 
                     t_ptr +=1  
                 else:
+                    p_ptr+=3
                     arg_start = p_ptr 
                     while (p_ptr < len(predicted_words)) and ((t_ptr== len(template_words)-1) or (predicted_words[p_ptr] != template_words[t_ptr+1])):
                         p_ptr+=1
