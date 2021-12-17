@@ -139,6 +139,7 @@ def extract_args_from_template(ex, template, ontology_dict):
         sorted_keys.append(len(predicted_words)-1)
         for i in range(len(sorted_keys)-1):
             interval = sorted_keys[i]
+            print('debug', sorted_keys[i+1][0])
             predicted_args[found_dict[interval]].append(predicted_words[interval[1]:sorted_keys[i+1][0]])
 
         print(sorted_keys)
