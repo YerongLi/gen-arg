@@ -64,40 +64,40 @@ def extract_args_from_template(ex, template, ontology_dict):
             else:
                 t_ptr+=1 
                 p_ptr+=1 
-        else:
-            template_words = template.strip().split()
-            predicted_words = ex['predicted'].strip().split()    
-            predicted_args = defaultdict(list) # each argname may have multiple participants 
-            t_ptr= 0
-            p_ptr= 0 
-            evt_type = ex['event']['event_type']
-            print('event type')
-            print(evt_type)
-            while t_ptr < len(template_words) and p_ptr < len(predicted_words):
-                if re.match(r'<(arg\d+)>', template_words[t_ptr]):
-                    m = re.match(r'<(arg\d+)>', template_words[t_ptr])
-                    arg_num = m.group(1)
-                    try:
-                        arg_name = ontology_dict[evt_type][arg_num]
-                    except KeyError:
-                        print(evt_type)
-                        exit() 
+    else:
+        template_words = template.strip().split()
+        predicted_words = ex['predicted'].strip().split()    
+        predicted_args = defaultdict(list) # each argname may have multiple participants 
+        t_ptr= 0
+        p_ptr= 0 
+        evt_type = ex['event']['event_type']
+        print('event type')
+        print(evt_type)
+        while t_ptr < len(template_words) and p_ptr < len(predicted_words):
+            if re.match(r'<(arg\d+)>', template_words[t_ptr]):
+                m = re.match(r'<(arg\d+)>', template_words[t_ptr])
+                arg_num = m.group(1)
+                try:
+                    arg_name = ontology_dict[evt_type][arg_num]
+                except KeyError:
+                    print(evt_type)
+                    exit() 
 
-                    if predicted_words[p_ptr] == '<arg>':
-                        # missing argument
-                        p_ptr +=1 
-                        t_ptr +=1  
-                    else:
-                        arg_start = p_ptr 
-                        while (p_ptr < len(predicted_words)) and ((t_ptr== len(template_words)-1) or (predicted_words[p_ptr] != template_words[t_ptr+1])):
-                            p_ptr+=1 
-                        arg_text = predicted_words[arg_start:p_ptr]
-                        predicted_args[arg_name].append(arg_text)
-                        t_ptr+=1 
-                        # aligned 
+                if predicted_words[p_ptr] == '<arg>':
+                    # missing argument
+                    p_ptr +=1 
+                    t_ptr +=1  
                 else:
+                    arg_start = p_ptr 
+                    while (p_ptr < len(predicted_words)) and ((t_ptr== len(template_words)-1) or (predicted_words[p_ptr] != template_words[t_ptr+1])):
+                        p_ptr+=1 
+                    arg_text = predicted_words[arg_start:p_ptr]
+                    predicted_args[arg_name].append(arg_text)
                     t_ptr+=1 
-                    p_ptr+=1 
+                    # aligned 
+            else:
+                t_ptr+=1 
+                p_ptr+=1 
     return predicted_args
 
 
