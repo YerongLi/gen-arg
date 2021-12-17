@@ -175,6 +175,8 @@ if __name__ == '__main__':
 
         predicted_args = extract_args_from_template(ex,template, ontology_dict)
         print(ontology_dict[evt_type]['role_description'])
+        print(ontology_dict[evt_type]['role_types'])
+
         print('predicted_args')
         print(predicted_args)
         # get trigger 
