@@ -142,7 +142,8 @@ if __name__ == '__main__':
                 'doc_id': pred['doc_key']
             }
             doc2ex[pred['doc_key']].append(lidx)
-        
+    print('args.tgr_pred_file')    
+    print(args.tgr_pred_file)    
     with open(args.tgr_pred_file, 'r') as f:
         for line in f:
             doc = json.loads(line.strip())
