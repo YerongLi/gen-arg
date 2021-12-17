@@ -134,7 +134,7 @@ def extract_args_from_template(ex, template, ontology_dict):
             if index : found_dict[index] = role
         print('found_dict')
         print(found_dict)
-        sorted_keys = sorted(list(found_dict.keys(), key=lambda x: x[0]))
+        sorted_keys = sorted(list(found_dict.keys()), key=lambda x: x[0])
         print(sorted_keys)
     return predicted_args
 
