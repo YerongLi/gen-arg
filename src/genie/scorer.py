@@ -54,6 +54,7 @@ def extract_args_from_template(ex, template, ontology_dict):
                     lps[i] = 0
                     i += 1
     def KMPSearch(pat, txt):
+        print(f'KMP: {pat} {txt}')
         M = len(pat)
         N = len(txt)
     
@@ -132,7 +133,7 @@ def extract_args_from_template(ex, template, ontology_dict):
         print('Before while loop')
         print(predicted_words)
         for role in ontology_dict[event_type]['roles']:
-            KMPSearch(predicted_words, ontology_dict[event_type]['role_description'].split())
+            KMPSearch(ontology_dict[event_type]['role_description'].split(), predicted_words)
 
     return predicted_args
 
