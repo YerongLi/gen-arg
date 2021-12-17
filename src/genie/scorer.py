@@ -74,6 +74,7 @@ def extract_args_from_template(ex, template, ontology_dict):
         print('event type')
         print(evt_type)
         while t_ptr < len(template_words) and p_ptr < len(predicted_words):
+            print('Entering while loop')
             if re.match(r'<(arg\d+)>', template_words[t_ptr]):
                 m = re.match(r'<(arg\d+)>', template_words[t_ptr])
                 arg_num = m.group(1)
