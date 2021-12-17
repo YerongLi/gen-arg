@@ -161,12 +161,13 @@ if __name__ == '__main__':
         
         # get template 
         evt_type = ex['event']['event_type']
-        print(context_words)
         if evt_type not in ontology_dict:
             continue 
         template = ontology_dict[evt_type]['template']
         # extract argument text 
         predicted_args = extract_args_from_template(ex,template, ontology_dict)
+        print('predicted_args')
+        print(predicted_args)
         # get trigger 
         # extract argument span
         trigger_start = ex['event']['trigger']['start']
