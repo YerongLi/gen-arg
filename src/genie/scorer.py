@@ -30,7 +30,6 @@ def clean_span(ex, span):
 
 def extract_args_from_template(ex, template, ontology_dict):
     # extract argument text
-    print('Entering extract_args_from_template', 'role_description' not in ontology_dict[ex['event']['event_type']])
     if 'role_description' not in ontology_dict[ex['event']['event_type']]:
         template_words = template.strip().split()
         predicted_words = ex['predicted'].strip().split()    
@@ -59,6 +58,8 @@ def extract_args_from_template(ex, template, ontology_dict):
                     while (p_ptr < len(predicted_words)) and ((t_ptr== len(template_words)-1) or (predicted_words[p_ptr] != template_words[t_ptr+1])):
                         p_ptr+=1 
                     arg_text = predicted_words[arg_start:p_ptr]
+                    print('arg_text')
+                    print(arg_text)
                     predicted_args[arg_name].append(arg_text)
                     t_ptr+=1 
                     # aligned 
