@@ -174,6 +174,7 @@ if __name__ == '__main__':
         print(ontology_dict[evt_type])
         print('template')
         print(template)
+        print(template.keys())
 
         predicted_args = extract_args_from_template(ex,template, ontology_dict)
         print('predicted_args')
@@ -208,8 +209,7 @@ if __name__ == '__main__':
                         arg_span = find_arg_span(new_entity, context_words, trigger_start, trigger_end, 
                         head_only=args.head_only, doc=doc)
                         if arg_span: predicted_set.add((arg_span[0], arg_span[1], evt_type, argname))
-                        
-                    
+                                  
         # get gold spans         
         gold_set = set() 
         gold_canonical_set = set() # set of canonical mention ids, singleton mentions will not be here 
