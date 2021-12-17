@@ -84,6 +84,7 @@ def extract_args_from_template(ex, template, ontology_dict):
                 arg_num = m.group(1)
                 try:
                     arg_name = ontology_dict[evt_type][arg_num]
+                    print(arg_name)
                 except KeyError:
                     print(evt_type)
                     exit() 
