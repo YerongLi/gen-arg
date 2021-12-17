@@ -54,7 +54,6 @@ def extract_args_from_template(ex, template, ontology_dict):
                     lps[i] = 0
                     i += 1
     def KMPSearch(pat, txt):
-        print(f'KMP: {pat} {txt}')
         M = len(pat)
         N = len(txt)
     
@@ -113,8 +112,6 @@ def extract_args_from_template(ex, template, ontology_dict):
                     while (p_ptr < len(predicted_words)) and ((t_ptr== len(template_words)-1) or (predicted_words[p_ptr] != template_words[t_ptr+1])):
                         p_ptr+=1 
                     arg_text = predicted_words[arg_start:p_ptr]
-                    print('arg_text')
-                    print(arg_text)
                     predicted_args[arg_name].append(arg_text)
                     t_ptr+=1 
                     # aligned 
@@ -132,19 +129,12 @@ def extract_args_from_template(ex, template, ontology_dict):
         for role in ontology_dict[evt_type]['roles']:
             index = KMPSearch(ontology_dict[evt_type]['role_description'][role].split(), predicted_words)
             if index : found_dict[index] = role
-        print('found_dict')
-        print(found_dict)
         sorted_keys = sorted(list(found_dict.keys()), key=lambda x: x[0])
         
         sorted_keys.append((len(predicted_words), -1))
         for i in range(len(sorted_keys)-1):
             interval = sorted_keys[i]
-            print(interval)
-            print(sorted_keys[i+1])
-            print('debug', interval[1], sorted_keys[i+1][0])
             predicted_args[found_dict[interval]].append(predicted_words[interval[1]:sorted_keys[i+1][0]])
-
-        print(sorted_keys)
     return predicted_args
 
 
