@@ -161,7 +161,7 @@ if __name__ == '__main__':
         
         # get template 
         evt_type = ex['event']['event_type']
-
+        print(context_words)
         if evt_type not in ontology_dict:
             continue 
         template = ontology_dict[evt_type]['template']
