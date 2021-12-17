@@ -73,7 +73,7 @@ def extract_args_from_template(ex, template, ontology_dict):
                 j += 1
     
             if j == M:
-                return i
+                return i- M, i
                 j = lps[j-1]
     
             # mismatch after j matches
