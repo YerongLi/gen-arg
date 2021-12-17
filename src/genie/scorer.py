@@ -134,7 +134,9 @@ def extract_args_from_template(ex, template, ontology_dict):
         sorted_keys.append((len(predicted_words), -1))
         for i in range(len(sorted_keys)-1):
             interval = sorted_keys[i]
-            predicted_args[found_dict[interval]].append(predicted_words[interval[1]:sorted_keys[i+1][0]])
+            predicted_args[found_dict[interval]].append(
+                w.strip(punc) for w in predicted_words[interval[1]:sorted_keys[i+1][0]]
+                )
     return predicted_args
 
 
@@ -224,7 +226,7 @@ if __name__ == '__main__':
 
     arg_idn_coref_num =0
     arg_class_coref_num =0
-
+    punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     for ex in tqdm(list(examples.values())[:1]):
         context_words = ex['tokens']
         doc_id = ex['doc_id']
