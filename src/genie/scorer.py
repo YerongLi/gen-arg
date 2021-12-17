@@ -181,10 +181,8 @@ if __name__ == '__main__':
             doc = json.loads(line.strip())
             if 'sent_id' in doc.keys():
                 doc_id = doc['sent_id']
-                # print('evaluating on sentence level')
             else:
                 doc_id = doc['doc_id']
-                # print('evaluating on document level')
             for idx, eid in enumerate(doc2ex[doc_id]):
                 examples[eid]['tokens'] = doc['tokens']
                 examples[eid]['event'] = doc['event_mentions'][idx]
@@ -226,7 +224,6 @@ if __name__ == '__main__':
 
     arg_idn_coref_num =0
     arg_class_coref_num =0
-    punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     for ex in tqdm(list(examples.values())[:1]):
         context_words = ex['tokens']
         doc_id = ex['doc_id']
@@ -240,23 +237,11 @@ if __name__ == '__main__':
             continue 
         template = ontology_dict[evt_type]['template']
         # extract argument text 
-        print('ontology_dict')
-        print(ontology_dict[evt_type])
-        print('template')
-        print(template)
-        print(ontology_dict[evt_type].keys())
-        # print('input ex')
-        # print(ex)
         predicted_args = extract_args_from_template(ex,template, ontology_dict)
         role_description = {}
         if 'role_description' in ontology_dict[evt_type]:
             role_description = ontology_dict[evt_type]['role_description']
-        print('role_description')
-        print(role_description)
-        print(ontology_dict[evt_type]['role_types'])
 
-        print('predicted_args')
-        print(predicted_args)
         # get trigger 
         # extract argument span
         trigger_start = ex['event']['trigger']['start']
@@ -311,8 +296,6 @@ if __name__ == '__main__':
         pred_arg_num += len(predicted_set)
         gold_arg_num += len(gold_set)
         # check matches
-        print('predicted_set')
-        print(predicted_set)
         for pred_arg in predicted_set:
             arg_start, arg_end, event_type, role = pred_arg
             gold_idn = {item for item in gold_set
