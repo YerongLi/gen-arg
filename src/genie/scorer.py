@@ -78,10 +78,14 @@ if __name__ == '__main__':
     parser.add_argument('--head-only', action='store_true')
     parser.add_argument('--coref', action='store_true')
     parser.add_argument('--dataset',type=str, default='ACE', choices=['ACE', 'KAIROS','AIDA'])
+    parser.add_argument('--ontology_file', type=str, default=None)
+    
     args = parser.parse_args() 
 
-
-    ontology_dict = load_ontology(dataset=args.dataset)
+    if not args.ontology_file:
+        ontology_dict = load_ontology(dataset=args.dataset)
+    else:
+        ontology_dict = load_ontology(dataset=args.dataset, )
 
     if args.dataset == 'KAIROS' and args.coref and not args.coref_file:
         print('coreference file needed for the KAIROS dataset.')
