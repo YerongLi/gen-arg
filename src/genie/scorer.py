@@ -29,7 +29,8 @@ def clean_span(ex, span):
     return span 
 
 def extract_args_from_template(ex, template, ontology_dict):
-    # extract argument text 
+    # extract argument text
+    print('Entering extract_args_from_template', not 'role_description' in ontology_dict)
     if not 'role_description' in ontology_dict:
         template_words = template.strip().split()
         predicted_words = ex['predicted'].strip().split()    
