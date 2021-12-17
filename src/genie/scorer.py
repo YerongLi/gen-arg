@@ -85,7 +85,7 @@ if __name__ == '__main__':
     if not args.ontology_file:
         ontology_dict = load_ontology(dataset=args.dataset)
     else:
-        ontology_dict = load_ontology(dataset=args.dataset, )
+        ontology_dict = load_ontology(dataset=args.dataset)
 
     if args.dataset == 'KAIROS' and args.coref and not args.coref_file:
         print('coreference file needed for the KAIROS dataset.')
@@ -104,7 +104,8 @@ if __name__ == '__main__':
                 'doc_id': pred['doc_key']
             }
             doc2ex[pred['doc_key']].append(lidx)
-        
+    print('doc2ex')
+    print(doc2ex)
     with open(args.test_file, 'r') as f:
         for line in f:
             doc = json.loads(line.strip())
