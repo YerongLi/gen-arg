@@ -246,7 +246,9 @@ if __name__ == '__main__':
                         if gold_class_coref:
                             arg_class_coref_num +=1 
             
-
+    print(pred_arg_num)
+    # print(gold_arg_num)
+    # print(arg_idn_num)
         
     if args.head_only:
         print('Evaluation by matching head words only....')
