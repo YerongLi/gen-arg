@@ -37,8 +37,8 @@ def extract_args_from_template(ex, template, ontology_dict):
         t_ptr= 0
         p_ptr= 0 
         evt_type = ex['event']['event_type']
-        print('event type')
-        print(evt_type)
+        # print('event type')
+        # print(evt_type)
         while t_ptr < len(template_words) and p_ptr < len(predicted_words):
             if re.match(r'<(arg\d+)>', template_words[t_ptr]):
                 m = re.match(r'<(arg\d+)>', template_words[t_ptr])
@@ -90,8 +90,10 @@ def extract_args_from_template(ex, template, ontology_dict):
                 else:
                     arg_start = p_ptr 
                     while (p_ptr < len(predicted_words)) and ((t_ptr== len(template_words)-1) or (predicted_words[p_ptr] != template_words[t_ptr+1])):
-                        p_ptr+=1 
+                        p_ptr+=1
                     arg_text = predicted_words[arg_start:p_ptr]
+                    print('arg_text')
+                    print(arg_text)
                     predicted_args[arg_name].append(arg_text)
                     t_ptr+=1 
                     # aligned 
