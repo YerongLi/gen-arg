@@ -82,10 +82,8 @@ if __name__ == '__main__':
     
     args = parser.parse_args() 
 
-    if not args.ontology_file:
-        ontology_dict = load_ontology(dataset=args.dataset)
-    else:
-        ontology_dict = load_ontology(dataset=args.dataset)
+    # ontology_dict = load_ontology(dataset=args.dataset)
+    ontology_dict = load_ontology(dataset=args.dataset, ontology_file=args.ontology_file)
 
     if args.dataset == 'KAIROS' and args.coref and not args.coref_file:
         print('coreference file needed for the KAIROS dataset.')
