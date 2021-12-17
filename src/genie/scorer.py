@@ -212,8 +212,8 @@ if __name__ == '__main__':
         print('template')
         print(template)
         print(ontology_dict[evt_type].keys())
-        print('input ex')
-        print(ex)
+        # print('input ex')
+        # print(ex)
         predicted_args = extract_args_from_template(ex,template, ontology_dict)
         role_description = {}
         if 'role_description' in ontology_dict[evt_type]:
