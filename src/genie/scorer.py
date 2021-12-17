@@ -174,7 +174,7 @@ if __name__ == '__main__':
         print(ontology_dict[evt_type])
         print('template')
         print(template)
-        print(template.keys())
+        print(ontology_dict[evt_type].keys())
 
         predicted_args = extract_args_from_template(ex,template, ontology_dict)
         print('predicted_args')
