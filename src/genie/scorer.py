@@ -135,7 +135,7 @@ def extract_args_from_template(ex, template, ontology_dict):
         for i in range(len(sorted_keys)-1):
             interval = sorted_keys[i]
             predicted_args[found_dict[interval]].append(
-                w.strip(punc) for w in predicted_words[interval[1]:sorted_keys[i+1][0]]
+                [re.sub(r'[^\w\s]', '',w) for w in predicted_words[interval[1]:sorted_keys[i+1][0]]]
                 )
     return predicted_args
 
