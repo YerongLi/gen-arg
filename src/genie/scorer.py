@@ -224,7 +224,7 @@ if __name__ == '__main__':
 
     arg_idn_coref_num =0
     arg_class_coref_num =0
-    for ex in tqdm(list(examples.values())[:1]):
+    for ex in tqdm(list(examples.values())):
         context_words = ex['tokens']
         doc_id = ex['doc_id']
         doc = None 
