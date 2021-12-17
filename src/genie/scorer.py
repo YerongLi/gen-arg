@@ -136,7 +136,7 @@ def extract_args_from_template(ex, template, ontology_dict):
         print(found_dict)
         sorted_keys = sorted(list(found_dict.keys()), key=lambda x: x[0])
         
-        sorted_keys.append(len(predicted_words)-1)
+        sorted_keys.append((len(predicted_words), -1))
         for i in range(len(sorted_keys)-1):
             interval = sorted_keys[i]
             print(interval)
